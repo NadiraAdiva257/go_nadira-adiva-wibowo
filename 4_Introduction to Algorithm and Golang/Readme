@@ -1,0 +1,12 @@
+Resume Materi "Introduction to Algorithm and Golang"
+- algoritma adalah peirntah-perintah yang jelas untuk menyelesaikan suatu permasalahan dengan menyertakan input, proses, dan output
+- karakteristik algoritma adalah punya batasan (input & output) dan perintahnya jelas, efektif, serta efisien
+- basic dari algoritma adalah sequential (berurutan), branching (percabangan), dan looping (pengulangan)
+- pseudocode adalah penjelasan urutan perintah-perintah dan hubungannya dalam algoritma dengan bahasa manusia sehingga lebih mudah dimengerti
+- flowchart adalah penjelasan urutan perintah-perintah dan hubungannya dalam algoritma dengan bagan dan simbol-simbol tertentu
+- terdapat 5 simbol dasar pada flowchart:
+- 1. persegi panjang dengan 4 sudut yang melengkung: menggambarkan mulai / selesai
+- 2. persegi panjang: menggambarkan proses
+- 3. jajar genjang: menggambarkan input / output
+- 4. belah ketupat: menggambarkan branching
+- 5. segi enam: menggambarkan looping
