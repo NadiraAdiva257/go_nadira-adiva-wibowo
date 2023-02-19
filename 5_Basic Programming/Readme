@@ -1,0 +1,20 @@
+Resume Materi "Basic Programming"
+- golang adalah bahasa programming baru yang sedang naik daun yang memang dibuat mudah, simpel, dan efisien
+- golang biasanya digunakan pada e-commerce, social media apps, APIs, game engines, CLI apps, dll
+- terdapat 6 alasan golang direkomendasikan untuk digunakan:
+- 1. simpel dan menyenangkan
+- 2. digabungkan dari bahasa programming C dan JavaScript
+- 3. lightweight syntax
+- 4. built-in concurrency
+- 5. open source
+- 6. digunakan oleh banyak perusahaan besar
+- golang bisa diterapkan pada sistem operasi Windows, Mac OS, dan Linux
+- golang bisa dijalankan melalui terminal
+- terdapat beberapa dasar dari golang:
+- 1. variabel adalah tempat untuk menampung nilai dan tipe data adalah jenis nilai dari suatu variabel
+- 2. tipe data pada umumnya adalah boolean, numeric (integer, float, complex), dan string
+- 3. variabel konstanta adalah variabel yang nilainya tidak bisa berubah
+- 4. operator pada umumnya adalah arithmetic, comparison, logical, bitwise, assignment, dan miscellaneous
+- 5. penerapan branching dapat menggunakan if, if else, if else if else, nested if, dan switch
+- 6. penerapan looping dapat menggunakan for dan while
+- 7. continue dalam looping berarti bagian tersebut dilewati dan dilanjutkan ke perulangan selanjutnya sedangkan break dalam looping berarti menghentikan keseluruhan perulangan
