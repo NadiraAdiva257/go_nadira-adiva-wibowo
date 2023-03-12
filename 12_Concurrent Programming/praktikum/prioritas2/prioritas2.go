@@ -2,28 +2,33 @@ package main
 
 import (
 	"fmt"
-	"time"
+	"sync"
 )
 
 func main() {
-	go KemunculanTiapHuruf("lorem ipsum")
-	go KemunculanTiapHuruf("nadira adiva")
+	var mutex sync.Mutex
+	ch := make(chan map[string]int)
 
-	time.Sleep(1 * time.Second)
-}
-
-func KemunculanTiapHuruf(kalimat string) {
 	mapping := make(map[string]int)
+	inputKalimat := "nadira adiva"
 
-	for _, value := range kalimat {
-		var value2, keySudahAda = mapping[string(value)]
+	go func(kalimat string) {
+		for _, value := range kalimat {
+			var value2, keySudahAda = mapping[string(value)]
 
-		if keySudahAda {
-			mapping[string(value)] = value2 + 1
-		} else {
-			mapping[string(value)] = value2 + 1
+			mutex.Lock()
+			if keySudahAda {
+				mapping[string(value)] = value2 + 1
+			} else {
+				mapping[string(value)] = value2 + 1
+			}
+			mutex.Unlock()
 		}
-	}
+		ch <- mapping
+		close(ch)
+	}(inputKalimat)
 
-	fmt.Println(mapping)
+	for value := range ch {
+		fmt.Println(value)
+	}
 }
