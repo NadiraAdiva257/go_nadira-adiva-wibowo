@@ -1,0 +1,1 @@
+untuk praktikum soal 2 (Join, Union, Sub query, Function) saya pakai database sql yang sebelum diupdate dan didelete ya kak. terima kasih
