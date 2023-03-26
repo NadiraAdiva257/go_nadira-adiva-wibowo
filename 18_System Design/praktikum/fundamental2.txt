@@ -1,0 +1,26 @@
+REDIS
+untuk studi kasus menyimpan data users yang memiliki banyak atribut, maka command HASH cocok digunakan karena merupakan tipe data di Redis yang dapat menyimpan banyak key di dalam suatu key. 
+contoh dalam Redis: key utamanya adalah users dan key atributnya adalah name, email, gender, dan age
+- INSERT INTO ... VALUES ... = 
+HSET users name "nadira"
+HSET users email "nadira@gmail.com"
+HSET users gender "p"
+HSET users age 21
+- SELECT * FROM users = 
+HGETALL users
+
+NEO4J
+untuk studi kasus menyimpan data users yang memiliki banyak atribut. 
+contoh dalam Neo4j: labelnya adalah users dan propertinya adalah name, email, gender, dan age
+- INSERT INTO ... VALUES ... = 
+CREATE (u:Users {name:"nadira", email:"nadira@gmail.com", gender:"p", age:21})
+- SELECT * FROM users =
+MATCH (u:Users) RETURN u
+
+CASSANDRA
+untuk studi kasus menyimpan data users yang memiliki banyak atribut. 
+contoh dalam Cassandra: tabelnya adalah users dan kolomnya adalah name, email, gender, dan age
+- INSERT INTO ... VALUES ... =
+INSERT INTO users (name, email, gender, age) VALUES ("nadira", "nadira@gmail.com", "p", 21)
+- SELECT * FROM users = 
+SELECT * FROM users
