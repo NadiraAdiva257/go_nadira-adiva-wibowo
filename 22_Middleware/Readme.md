@@ -1,0 +1,14 @@
+Resume Materi "Middleware"
+- middleware adalah layer yang berada di antara proses request dari client melalui http dan response dari server melalui API. dimana punya fungsi-fungsi khusus untuk membantu hubungan antara keduanya
+- terdapat beberapa third party middleware, yaitu negroni, echo, interpose, alice, dkk
+- dalam middleware echo, dibagi antara echo#pre() dan echo#use()
+- echo#pre() adalah proses eksekusi yang dilakukan sebelum router memproses request. contohnya adalah HTTPSRedirect, HTTPSWWWRedirect, WWWRedirect, AddTrailingSlash, RemoveTrailingSlash, MethodOverride, Rewrite, dkk
+- echo#use() adalah proses eksekusi yang dilakukan setelah router memproses request dan sudah mempunyai full akses ke echo.Context API. contohnya adalah BodyLimit, Logger, Gzip, Recover, BasicAuth, JWTAuth, Secure, CORS, Static
+- HTTPSRedirect adalah middleware yang mengubah http request menjadi https sehingga lebih secure
+- log adalah middleware yang mencatat histroy http request, dimana nantinya dapat digunakan untuk dianalisis lebih lanjut. format log dapat dicustom
+- untuk dapat menggunakan middleware echo, maka perlu menginstall melalui github.com/labstack/echo/middleware
+- auth middleware adalah proses pencocokan identifikasi user supaya data dan informasi dapat terjaga. dimana di dalam middleware echo, terdapat basic authentication dan JSON web token (JWT)
+- basic authentication nantinya akan mencocokkan identifikasi user melalui header dengan key Authorization dan value Basic + base64encode('username:password')
+- jadi perlu buat function basic authentication. dimana function tersebut akan digunakan di route sehingga route end point yang menggunakan function tersebut dapat terakses jika authentication berhasil
+- JWT pada umumnya sama dengan basic authentication. tetapi headernya dengan key Authorization dan value Bearer + Token. dimana Token didapatkan ketika authentication berhasil dan cocok dengan secret_JWT
+- untuk dapat menggunakan JWT, maka perlu menginstall melalui github.com/dgrijalva/jwt-go
