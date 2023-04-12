@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:latest
+    container_name: database
+    cap_add:
+      - SYS_NICE
+    restart: always
+    environment:
+      - MYSQL_DATABASE=middleware_go
+      - MYSQL_ROOT_PASSWORD=
+    ports:
+      - 3306:3306
+    volumes:
+      - db:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+  api:
+    container_name: app-middleware-go
+    build: .
+    depends_on:
+      - db
+    ports:
+      - 8000:8000
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: 
+      DB_NAME: middleware_go
+    links:
+      - db
+    volumes:
+      - ./:/src
+volumes:
+  db:
+    driver: local
