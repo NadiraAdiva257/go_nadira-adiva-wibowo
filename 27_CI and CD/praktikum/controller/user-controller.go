@@ -54,7 +54,7 @@ func CreateUserController(c echo.Context) error {
 	}
 
 	return c.JSON(http.StatusOK, map[string]interface{}{
-		"message": "success buat new user",
+		"message": "success create new user",
 	})
 }
 
