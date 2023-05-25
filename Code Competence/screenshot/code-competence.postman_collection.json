@@ -1,0 +1,1182 @@
+{
+	"info": {
+		"_postman_id": "70722288-26ea-429c-b92a-0da9205af5ff",
+		"name": "code-competence",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26573787"
+	},
+	"item": [
+		{
+			"name": "create admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin3\",\r\n    \"email\": \"admin2@gmail.com\",\r\n    \"password\": \"admin3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/admins",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"admins"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create admin success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin2\",\r\n    \"email\": \"admin2@gmail.com\",\r\n    \"password\": \"admin2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/admins",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"admins"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 25 May 2023 00:10:31 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "39"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"success create new admin\"\n}"
+				},
+				{
+					"name": "create admin fail 1",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin2\",\r\n    \"email\": \"admin3@gmail.com\",\r\n    \"password\": \"admin3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/admins",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"admins"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 25 May 2023 00:11:16 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "57"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"email or username admin is same with other\"\n}"
+				},
+				{
+					"name": "create admin fail 2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin3\",\r\n    \"email\": \"admin2@gmail.com\",\r\n    \"password\": \"admin3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/admins",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"admins"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 25 May 2023 00:11:34 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "57"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"email or username admin is same with other\"\n}"
+				}
+			]
+		},
+		{
+			"name": "login admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin2\",\r\n    \"password\": \"admin2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/admins/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"admins",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "login admin success 1",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin1\",\r\n    \"password\": \"admin1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/admins/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"admins",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 25 May 2023 00:11:54 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "200"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"admin successfully login\",\n    \"your token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicGFzc3dvcmQiOiJhZG1pbjEiLCJ1c2VybmFtZSI6ImFkbWluMSJ9.MLjWiCP7qJyqhz_2tKTklSSXkNSgO3BxVc7mL5CoP04\"\n}"
+				},
+				{
+					"name": "login admin success 2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin2\",\r\n    \"password\": \"admin2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/admins/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"admins",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 25 May 2023 00:19:28 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "200"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"admin successfully login\",\n    \"your token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwicGFzc3dvcmQiOiJhZG1pbjIiLCJ1c2VybmFtZSI6ImFkbWluMiJ9.LBWmaz0bkidpzEuju2TJQB5dogvW_L5iKZyMkewM0B0\"\n}"
+				},
+				{
+					"name": "login admin fail",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin1\",\r\n    \"password\": \"admin2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/admins/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"admins",
+								"login"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 25 May 2023 00:12:08 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "27"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Unauthorized\"\n}"
+				}
+			]
+		},
+		{
+			"name": "create electronic data",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicGFzc3dvcmQiOiJhZG1pbjEiLCJ1c2VybmFtZSI6ImFkbWluMSJ9.MLjWiCP7qJyqhz_2tKTklSSXkNSgO3BxVc7mL5CoP04",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"type c to usb\",\r\n    \"description\": \"aeqnqfnfsk\",\r\n    \"stock_amount\": 10,\r\n    \"price\": 25000,\r\n    \"category\": \"cable\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"items"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create electronic data success 1",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"type c to usb\",\r\n    \"description\": \"adaptor for charging or data transfer\",\r\n    \"stock_amount\": 200,\r\n    \"price\": 25000,\r\n    \"category\": \"cable\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"items"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 25 May 2023 00:16:22 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "49"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"success create new electronic data\"\n}"
+				},
+				{
+					"name": "create electronic data success 2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"earphone wireless - white\",\r\n    \"description\": \"high hd sound and stereo effect\",\r\n    \"stock_amount\": 100,\r\n    \"price\": 78000,\r\n    \"category\": \"earphone\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"items"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 25 May 2023 00:19:07 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "49"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"success create new electronic data\"\n}"
+				},
+				{
+					"name": "create electronic data success  3",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"xiamoi earphone basic - black\",\r\n    \"description\": \"high hd sound and stereo effect\",\r\n    \"stock_amount\": 110,\r\n    \"price\": 69000,\r\n    \"category\": \"earphone\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"items"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 25 May 2023 00:21:19 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "49"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"success create new electronic data\"\n}"
+				},
+				{
+					"name": "create electronic data success 4",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"hdmi for pc lcd projector\",\r\n    \"description\": \"cable length affects the resolution\",\r\n    \"stock_amount\": 57,\r\n    \"price\": 34000,\r\n    \"category\": \"cable\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"items"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 25 May 2023 00:23:17 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "49"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"success create new electronic data\"\n}"
+				},
+				{
+					"name": "create electronic data success 5",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"lan rj45 gigabit ethernet\",\r\n    \"description\": \"each size sold separately\",\r\n    \"stock_amount\": 39,\r\n    \"price\": 39000,\r\n    \"category\": \"cable\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"items"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 25 May 2023 00:26:31 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "49"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"success create new electronic data\"\n}"
+				},
+				{
+					"name": "create electronic data success 6",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"jsfhasfnhqrqm\",\r\n    \"description\": \"aeqnqfnfsk\",\r\n    \"stock_amount\": 10,\r\n    \"price\": 1000,\r\n    \"category\": \"cable\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"items"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 25 May 2023 00:27:57 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "49"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"success create new electronic data\"\n}"
+				},
+				{
+					"name": "create electronic data fail",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"type c to usb\",\r\n    \"description\": \"aeqnqfnfsk\",\r\n    \"stock_amount\": 10,\r\n    \"price\": 25000,\r\n    \"category\": \"cable\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"items"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 25 May 2023 00:32:38 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "43"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"item name is same with other\"\n}"
+				}
+			]
+		},
+		{
+			"name": "edit electronic data",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicGFzc3dvcmQiOiJhZG1pbjEiLCJ1c2VybmFtZSI6ImFkbWluMSJ9.MLjWiCP7qJyqhz_2tKTklSSXkNSgO3BxVc7mL5CoP04",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"lan rj45 gigabit ethernet\",\r\n    \"description\": \"each size is sold separately and has a different price\",\r\n    \"stock_amount\": 39,\r\n    \"price\": 39000,\r\n    \"category\": \"cable\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/items/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"items",
+						"5"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "edit electronic data 5",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"lan rj45 gigabit ethernet\",\r\n    \"description\": \"each size is sold separately and has a different price\",\r\n    \"stock_amount\": 39,\r\n    \"price\": 39000,\r\n    \"category\": \"cable\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/items/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"items",
+								"5"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 25 May 2023 00:30:36 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "51"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"success update electronic data by id\"\n}"
+				}
+			]
+		},
+		{
+			"name": "delete electronic data",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicGFzc3dvcmQiOiJhZG1pbjEiLCJ1c2VybmFtZSI6ImFkbWluMSJ9.MLjWiCP7qJyqhz_2tKTklSSXkNSgO3BxVc7mL5CoP04",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/items/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"items",
+						"6"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "delete electronic data 6",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/items/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"items",
+								"6"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 25 May 2023 00:28:26 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "51"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"success delete electronic data by id\"\n}"
+				}
+			]
+		},
+		{
+			"name": "get all electronic data",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicGFzc3dvcmQiOiJhZG1pbjEiLCJ1c2VybmFtZSI6ImFkbWluMSJ9.MLjWiCP7qJyqhz_2tKTklSSXkNSgO3BxVc7mL5CoP04",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"items"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get all electronic data",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"items"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 25 May 2023 00:31:33 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1552"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"electronic data\": [\n        {\n            \"ID\": 1,\n            \"CreatedAt\": \"2023-05-25T07:16:22.74+07:00\",\n            \"UpdatedAt\": \"2023-05-25T07:16:22.74+07:00\",\n            \"DeletedAt\": null,\n            \"name\": \"type c to usb\",\n            \"description\": \"adaptor for charging or data transfer\",\n            \"stock_amount\": 200,\n            \"price\": 25000,\n            \"category\": \"b9b2c9a4-082d-4cdd-90e2-1abaac1f9d36\",\n            \"admin_id\": 1\n        },\n        {\n            \"ID\": 2,\n            \"CreatedAt\": \"2023-05-25T07:19:07.657+07:00\",\n            \"UpdatedAt\": \"2023-05-25T07:19:07.657+07:00\",\n            \"DeletedAt\": null,\n            \"name\": \"earphone wireless - white\",\n            \"description\": \"high hd sound and stereo effect\",\n            \"stock_amount\": 100,\n            \"price\": 78000,\n            \"category\": \"76113222-cf60-4922-b2e8-2b415cc6b399\",\n            \"admin_id\": 1\n        },\n        {\n            \"ID\": 3,\n            \"CreatedAt\": \"2023-05-25T07:21:19.255+07:00\",\n            \"UpdatedAt\": \"2023-05-25T07:21:19.255+07:00\",\n            \"DeletedAt\": null,\n            \"name\": \"xiamoi earphone basic - black\",\n            \"description\": \"high hd sound and stereo effect\",\n            \"stock_amount\": 110,\n            \"price\": 69000,\n            \"category\": \"09ae5a45-015d-45cf-923f-0ad7ad76cb57\",\n            \"admin_id\": 2\n        },\n        {\n            \"ID\": 4,\n            \"CreatedAt\": \"2023-05-25T07:23:17.303+07:00\",\n            \"UpdatedAt\": \"2023-05-25T07:23:17.303+07:00\",\n            \"DeletedAt\": null,\n            \"name\": \"hdmi for pc lcd projector\",\n            \"description\": \"cable length affects the resolution\",\n            \"stock_amount\": 57,\n            \"price\": 34000,\n            \"category\": \"e62687ba-9758-4ac7-89cc-936527f532c6\",\n            \"admin_id\": 2\n        },\n        {\n            \"ID\": 5,\n            \"CreatedAt\": \"2023-05-25T07:26:31.922+07:00\",\n            \"UpdatedAt\": \"2023-05-25T07:30:36.719+07:00\",\n            \"DeletedAt\": null,\n            \"name\": \"lan rj45 gigabit ethernet\",\n            \"description\": \"each size is sold separately and has a different price\",\n            \"stock_amount\": 39,\n            \"price\": 39000,\n            \"category\": \"b7d4020e-d486-42d7-9931-7bcb10a3286c\",\n            \"admin_id\": 1\n        }\n    ],\n    \"message\": \"success get all electronic data\"\n}"
+				}
+			]
+		},
+		{
+			"name": "get electronic data by id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicGFzc3dvcmQiOiJhZG1pbjEiLCJ1c2VybmFtZSI6ImFkbWluMSJ9.MLjWiCP7qJyqhz_2tKTklSSXkNSgO3BxVc7mL5CoP04",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/items/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"items",
+						"4"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get electronic data by id 2",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/items/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"items",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 25 May 2023 00:34:03 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "361"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"electronic data\": [\n        {\n            \"ID\": 2,\n            \"CreatedAt\": \"2023-05-25T07:19:07.657+07:00\",\n            \"UpdatedAt\": \"2023-05-25T07:19:07.657+07:00\",\n            \"DeletedAt\": null,\n            \"name\": \"earphone wireless - white\",\n            \"description\": \"high hd sound and stereo effect\",\n            \"stock_amount\": 100,\n            \"price\": 78000,\n            \"category\": \"76113222-cf60-4922-b2e8-2b415cc6b399\",\n            \"admin_id\": 1\n        }\n    ],\n    \"message\": \"success get electronic data by id\"\n}"
+				},
+				{
+					"name": "get electronic data by id 4",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/items/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"items",
+								"4"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 25 May 2023 00:34:19 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "364"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"electronic data\": [\n        {\n            \"ID\": 4,\n            \"CreatedAt\": \"2023-05-25T07:23:17.303+07:00\",\n            \"UpdatedAt\": \"2023-05-25T07:23:17.303+07:00\",\n            \"DeletedAt\": null,\n            \"name\": \"hdmi for pc lcd projector\",\n            \"description\": \"cable length affects the resolution\",\n            \"stock_amount\": 57,\n            \"price\": 34000,\n            \"category\": \"e62687ba-9758-4ac7-89cc-936527f532c6\",\n            \"admin_id\": 2\n        }\n    ],\n    \"message\": \"success get electronic data by id\"\n}"
+				}
+			]
+		},
+		{
+			"name": "get electronic data by category id",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "get electronic data by category id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/items/category/b7d4020e-d486-42d7-9931-7bcb10a3286c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"items",
+								"category",
+								"b7d4020e-d486-42d7-9931-7bcb10a3286c"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 25 May 2023 05:14:03 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "392"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"electronic data\": [\n        {\n            \"ID\": 5,\n            \"CreatedAt\": \"2023-05-25T07:26:31.922+07:00\",\n            \"UpdatedAt\": \"2023-05-25T07:30:36.719+07:00\",\n            \"DeletedAt\": null,\n            \"name\": \"lan rj45 gigabit ethernet\",\n            \"description\": \"each size is sold separately and has a different price\",\n            \"stock_amount\": 39,\n            \"price\": 39000,\n            \"category\": \"b7d4020e-d486-42d7-9931-7bcb10a3286c\",\n            \"admin_id\": 1\n        }\n    ],\n    \"message\": \"success get electronic data by category id\"\n}"
+				}
+			]
+		},
+		{
+			"name": "get electronic data by item name",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "get electronic data by item name usb",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/items?keyword=usb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"items"
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": "usb"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 25 May 2023 05:15:52 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "360"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"electronic data\": [\n        {\n            \"ID\": 1,\n            \"CreatedAt\": \"2023-05-25T07:16:22.74+07:00\",\n            \"UpdatedAt\": \"2023-05-25T07:16:22.74+07:00\",\n            \"DeletedAt\": null,\n            \"name\": \"type c to usb\",\n            \"description\": \"adaptor for charging or data transfer\",\n            \"stock_amount\": 200,\n            \"price\": 25000,\n            \"category\": \"b9b2c9a4-082d-4cdd-90e2-1abaac1f9d36\",\n            \"admin_id\": 1\n        }\n    ],\n    \"message\": \"success get electronic data by item name\"\n}"
+				},
+				{
+					"name": "get electronic data by item name lcd",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/items?keyword=lcd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"items"
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": "lcd"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 25 May 2023 05:16:04 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "371"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"electronic data\": [\n        {\n            \"ID\": 4,\n            \"CreatedAt\": \"2023-05-25T07:23:17.303+07:00\",\n            \"UpdatedAt\": \"2023-05-25T07:23:17.303+07:00\",\n            \"DeletedAt\": null,\n            \"name\": \"hdmi for pc lcd projector\",\n            \"description\": \"cable length affects the resolution\",\n            \"stock_amount\": 57,\n            \"price\": 34000,\n            \"category\": \"e62687ba-9758-4ac7-89cc-936527f532c6\",\n            \"admin_id\": 2\n        }\n    ],\n    \"message\": \"success get electronic data by item name\"\n}"
+				}
+			]
+		}
+	]
+}
