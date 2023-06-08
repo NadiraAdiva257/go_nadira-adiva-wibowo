@@ -3,93 +3,146 @@ package controller
 import (
 	"bytes"
 	"encoding/json"
-	"errors"
 	"net/http"
 	"net/http/httptest"
 	"testing"
 	"unit-testing2/model"
 	"unit-testing2/service"
 
-	"github.com/jarcoal/httpmock"
 	"github.com/labstack/echo"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 )
 
-// func InitEchoTestAPI() *echo.Echo {
-// 	config.InitDB()
-// 	e := echo.New()
-// 	return e
-// }
+var dataUser = model.User{
+	Name:     "nadira",
+	Email:    "nadira123@gmail.com",
+	Password: "nadira123",
+}
 
-// func InsertDataUserForGetUsers() error {
-// 	user := model.User{
-// 		Name:     "eline",
-// 		Email:    "eline789@gmail.com",
-// 		Password: "eline789",
-// 	}
+var dataUsers = []model.User{
+	{
+		Name:     "nadira",
+		Email:    "nadira123@gmail.com",
+		Password: "nadira123",
+	},
+	{
+		Name:     "adiva",
+		Email:    "adiva123@gmail.com",
+		Password: "adiva123",
+	},
+}
 
-// 	err := config.DB.Save(&user).Error
-// 	if err != nil {
-// 		return err
-// 	}
-// 	return nil
-// }
-
-func TestController_CreateUserController(t *testing.T) {
+func TestCreateUserController(t *testing.T) {
 	userRepository := &service.UserRepositoryMock{Mock: mock.Mock{}}
 	service.SetUserRepository(userRepository)
 
-	type args struct {
-		c echo.Context
-	}
-	tests := []struct {
-		name    string
-		m       *Controller
-		args    args
-		wantErr bool
-	}{
-		{
-			name:    "success",
-			wantErr: false,
-		},
-	}
+	userRepository.Mock.On("CreateUserController", &dataUser).Return(nil)
 
-	httpmock.Activate()
-	defer httpmock.DeactivateAndReset()
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			// if err := tt.m.CreateUserController(tt.args.c); (err != nil) != tt.wantErr {
-			// 	t.Errorf("Controller.CreateUserController() error = %v, wantErr %v", err, tt.wantErr)
-			// }
+	e := echo.New()
 
-			data := model.User{
-				Name:     "eline",
-				Email:    "eline789@gmail.com",
-				Password: "eline789",
-			}
-			userRepository.Mock.On("CreateUser", &data).Return(errors.New("error"))
+	bDataUser, _ := json.Marshal(dataUser)
+	req := httptest.NewRequest(http.MethodPost, "/users", bytes.NewReader(bDataUser))
+	req.Header.Set("content-type", "application/json")
+	rec := httptest.NewRecorder()
+	c := e.NewContext(req, rec)
 
-			e := echo.New()
+	CreateUserController(c)
 
-			bData, _ := json.Marshal(data)
-			req := httptest.NewRequest(http.MethodPost, "/users", bytes.NewReader(bData))
-			req.Header.Set("content-type", "application/json")
-			rec := httptest.NewRecorder()
-			c := e.NewContext(req, rec)
+	assert.Equal(t, http.StatusOK, rec.Code)
+}
 
-			controller := Controller{}
-			controller.CreateUserController(c)
+func TestUpdateUserController(t *testing.T) {
+	userRepository := &service.UserRepositoryMock{Mock: mock.Mock{}}
+	service.SetUserRepository(userRepository)
 
-			assert.Equal(t, http.StatusOK, rec.Code)
+	userRepository.Mock.On("UpdateUserController", &dataUser, 1).Return(nil)
 
-			var resultJSON map[string]interface{}
-			json.Unmarshal(rec.Body.Bytes(), &resultJSON)
+	e := echo.New()
 
-			expectResult := map[string]interface{}{
-				"message": "success create new user",
-			}
-			assert.Equal(t, expectResult, resultJSON)
-		})
-	}
+	bDataUser, _ := json.Marshal(dataUser)
+	req := httptest.NewRequest(http.MethodPut, "/users/1", bytes.NewReader(bDataUser))
+	req.Header.Set("content-type", "application/json")
+	rec := httptest.NewRecorder()
+	c := e.NewContext(req, rec)
+
+	UpdateUserController(c)
+
+	assert.Equal(t, http.StatusOK, rec.Code)
+}
+
+func TestDeleteUserController(t *testing.T) {
+	userRepository := &service.UserRepositoryMock{Mock: mock.Mock{}}
+	service.SetUserRepository(userRepository)
+
+	userRepository.Mock.On("DeleteUserController", &dataUser, 1).Return(nil)
+
+	e := echo.New()
+
+	bDataUser, _ := json.Marshal(dataUser)
+	req := httptest.NewRequest(http.MethodDelete, "/users/1", bytes.NewReader(bDataUser))
+	req.Header.Set("content-type", "application/json")
+	rec := httptest.NewRecorder()
+	c := e.NewContext(req, rec)
+
+	DeleteUserController(c)
+
+	assert.Equal(t, http.StatusOK, rec.Code)
+}
+
+func TestGetUserController(t *testing.T) {
+	userRepository := &service.UserRepositoryMock{Mock: mock.Mock{}}
+	service.SetUserRepository(userRepository)
+
+	userRepository.Mock.On("GetUserController", &dataUser, 1).Return(nil)
+
+	e := echo.New()
+
+	bDataUser, _ := json.Marshal(dataUser)
+	req := httptest.NewRequest(http.MethodGet, "/users/1", bytes.NewReader(bDataUser))
+	req.Header.Set("content-type", "application/json")
+	rec := httptest.NewRecorder()
+	c := e.NewContext(req, rec)
+
+	GetUserController(c)
+
+	assert.Equal(t, http.StatusOK, rec.Code)
+}
+
+func TestGetUsersController(t *testing.T) {
+	userRepository := &service.UserRepositoryMock{Mock: mock.Mock{}}
+	service.SetUserRepository(userRepository)
+
+	userRepository.Mock.On("GetUsersController", &dataUsers).Return(nil)
+
+	e := echo.New()
+
+	bDataUsers, _ := json.Marshal(dataUsers)
+	req := httptest.NewRequest(http.MethodGet, "/users", bytes.NewReader(bDataUsers))
+	req.Header.Set("content-type", "application/json")
+	rec := httptest.NewRecorder()
+	c := e.NewContext(req, rec)
+
+	GetUsersController(c)
+
+	assert.Equal(t, http.StatusOK, rec.Code)
+}
+
+func TestLoginUserController(t *testing.T) {
+	userRepository := &service.UserRepositoryMock{Mock: mock.Mock{}}
+	service.SetUserRepository(userRepository)
+
+	userRepository.Mock.On("LoginUserController", &dataUser).Return(nil)
+
+	e := echo.New()
+
+	bDataUser, _ := json.Marshal(dataUser)
+	req := httptest.NewRequest(http.MethodPost, "/users", bytes.NewReader(bDataUser))
+	req.Header.Set("content-type", "application/json")
+	rec := httptest.NewRecorder()
+	c := e.NewContext(req, rec)
+
+	LoginUserController(c)
+
+	assert.Equal(t, http.StatusOK, rec.Code)
 }

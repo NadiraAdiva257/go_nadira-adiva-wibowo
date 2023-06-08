@@ -3,8 +3,8 @@ package controller
 import (
 	"net/http"
 	"strconv"
-	"unit-testing2/config"
 	"unit-testing2/model"
+	"unit-testing2/service"
 
 	"github.com/labstack/echo"
 )
@@ -13,8 +13,10 @@ import (
 func GetBooksController(c echo.Context) error {
 	var books []model.Book
 
-	if err := config.DB.Find(&books).Error; err != nil {
-		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
+	if err := service.GetBookRepository().GetBooksController(&books); err != nil {
+		return c.JSON(http.StatusBadRequest, map[string]interface{}{
+			"message": err.Error(),
+		})
 	}
 
 	return c.JSON(http.StatusOK, map[string]interface{}{
@@ -25,80 +27,87 @@ func GetBooksController(c echo.Context) error {
 
 // get book by id
 func GetBookController(c echo.Context) error {
-	var books []model.Book
+	var book model.Book
 
 	id, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
 		return err
 	}
 
-	bookById := config.DB.First(&books, id)
-
-	if err := bookById.Error; err != nil {
-		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
+	if err := service.GetBookRepository().GetBookController(&book, id); err != nil {
+		return c.JSON(http.StatusBadRequest, map[string]interface{}{
+			"message": err.Error(),
+		})
 	}
 
 	return c.JSON(http.StatusOK, map[string]interface{}{
 		"message": "success get book by id",
-		"book":    books,
+		"book":    book,
 	})
 }
 
 // create new book
 func CreateBookController(c echo.Context) error {
-	book := model.Book{}
-	c.Bind(&book)
+	var book model.Book
+	if err := c.Bind(&book); err != nil {
+		return c.JSON(http.StatusBadRequest, map[string]interface{}{
+			"message": "fail",
+		})
+	}
 
-	if err := config.DB.Save(&book).Error; err != nil {
-		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
+	if err := service.GetBookRepository().CreateBookController(&book); err != nil {
+		return c.JSON(http.StatusBadRequest, map[string]interface{}{
+			"message": err.Error(),
+		})
 	}
 
 	return c.JSON(http.StatusOK, map[string]interface{}{
 		"message": "success create new book",
-		"book":    book,
-	})
-}
-
-// delete book by id
-func DeleteBookController(c echo.Context) error {
-	var books []model.Book
-
-	id, err := strconv.Atoi(c.Param("id"))
-	if err != nil {
-		return err
-	}
-
-	bookById := config.DB.Delete(&books, id)
-
-	if err := bookById.Error; err != nil {
-		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
-	}
-
-	return c.JSON(http.StatusOK, map[string]interface{}{
-		"message": "success delete book by id",
 	})
 }
 
 // update book by id
 func UpdateBookController(c echo.Context) error {
-	var books []model.Book
+	var book model.Book
 
 	id, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
 		return err
 	}
 
-	title := c.FormValue("title")
-	author := c.FormValue("author")
-	publisher := c.FormValue("publisher")
+	if err := c.Bind(&book); err != nil {
+		return c.JSON(http.StatusBadRequest, map[string]interface{}{
+			"message": "fail",
+		})
+	}
 
-	updateBookById := config.DB.Model(&books).Where("id = ?", id).Updates(model.Book{Title: title, Author: author, Publisher: publisher})
-
-	if err := updateBookById.Error; err != nil {
-		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
+	if err := service.GetBookRepository().UpdateBookController(&book, id); err != nil {
+		return c.JSON(http.StatusBadRequest, map[string]interface{}{
+			"message": err.Error(),
+		})
 	}
 
 	return c.JSON(http.StatusOK, map[string]interface{}{
 		"messages": "success update book by id",
+	})
+}
+
+// delete book by id
+func DeleteBookController(c echo.Context) error {
+	var book model.Book
+
+	id, err := strconv.Atoi(c.Param("id"))
+	if err != nil {
+		return err
+	}
+
+	if err := service.GetBookRepository().DeleteBookController(&book, id); err != nil {
+		return c.JSON(http.StatusBadRequest, map[string]interface{}{
+			"message": err.Error(),
+		})
+	}
+
+	return c.JSON(http.StatusOK, map[string]interface{}{
+		"message": "success delete book by id",
 	})
 }

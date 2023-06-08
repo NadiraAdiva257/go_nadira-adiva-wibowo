@@ -15,15 +15,13 @@ func New() *echo.Echo {
 
 	m.LogMiddleware(e)
 
-	userController := controller.Controller{}
-
-	e.POST("/user", userController.CreateUserController)
+	e.POST("/user", controller.CreateBookController)
 	e.POST("/login", controller.LoginUserController)
 	// e.GET("/users", userController.GetUsersController)
 
 	eJwt := e.Group("/users")
 	eJwt.Use(mid.JWT([]byte(constants.SECRET_JWT)))
-	eJwt.GET("", userController.GetUsersController)
+	eJwt.GET("", controller.GetUsersController)
 	eJwt.GET("/:id", controller.GetUserController)
 	eJwt.DELETE("/:id", controller.DeleteUserController)
 	eJwt.PUT("/:id", controller.UpdateUserController)
